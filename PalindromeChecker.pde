@@ -14,9 +14,37 @@ public void setup()
     }
   }
 }
+
+public String noPunc(String word)
+{ String newWord="";
+  for (int i=0; i<word.length(); i++)
+  {
+    if(Character.isLetter(word.charAt(i))==true)
+    {
+      newWord = newWord+ word.charAt(i);
+    }
+  }return newWord;
+}
+public String noSpaces(String sWord)
+{
+   String newWord= "";
+ for( int i=0; i<sWord.length(); i++)
+  { if(sWord.charAt(i)!=' ')
+     { newWord= newWord + sWord.charAt(i);
+     }
+  } return newWord;
+} 
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  int strt=0;
+  word= noSpaces(word);
+  word= noPunc(word);
+  word=word.toLowerCase();
+  for(int i=word.length()-1; i>0; i--)
+  {
+     if(word.charAt(strt)!=word.charAt(i))
+     {return false;} 
+     strt= strt+1;
+  } return true;
 }
 
